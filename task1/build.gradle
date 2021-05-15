@@ -6,6 +6,7 @@
  */
 plugins {
     id "scala"
+    //id 'org.gradle.playframework' version '0.11'
     //id "com.github.johnrengelman.shadow" version "6.0.0"
 }
 
@@ -13,6 +14,15 @@ repositories {
     mavenCentral()
     maven {
         url "https://plugins.gradle.org/m2/"
+    }
+    maven {
+        name "lightbend-maven-release"
+        url "https://repo.lightbend.com/lightbend/maven-releases"
+    }
+    ivy {
+        name "lightbend-ivy-release"
+        url "https://repo.lightbend.com/lightbend/ivy-releases"
+        layout "ivy"
     }
 }
 configurations {
@@ -25,6 +35,7 @@ dependencies {
     compile group: 'io.circe', name: 'circe-parser_2.12', version: '0.13.0'
     compile group: 'io.circe', name: 'circe-optics_2.12', version: '0.13.0'
     compile group: 'joda-time', name: 'joda-time', version: '2.10.10'
+    implementation group: 'org.json', name: 'json', version: '20090211'
     testCompile 'org.scala-lang:scala-library:2.12.11'
     testImplementation 'org.scalatest:scalatest_2.12:3.0.0'
     testImplementation 'junit:junit:4.13'
