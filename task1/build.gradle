@@ -20,6 +20,11 @@ configurations {
 }
 dependencies {
     compile 'org.scala-lang:scala-library:2.12.11'
+    compile group: 'io.circe', name: 'circe-core_2.12', version: '0.13.0'
+    compile group: 'io.circe', name: 'circe-generic_2.12', version: '0.13.0'
+    compile group: 'io.circe', name: 'circe-parser_2.12', version: '0.13.0'
+    compile group: 'io.circe', name: 'circe-optics_2.12', version: '0.13.0'
+    compile group: 'joda-time', name: 'joda-time', version: '2.10.10'
     testCompile 'org.scala-lang:scala-library:2.12.11'
     testImplementation 'org.scalatest:scalatest_2.12:3.0.0'
     testImplementation 'junit:junit:4.13'
