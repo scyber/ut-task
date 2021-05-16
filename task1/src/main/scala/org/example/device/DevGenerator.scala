@@ -10,6 +10,7 @@ import scala.concurrent.{Await, Future}
 import scala.util.Random
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
+import org.example.service._
 
 /**
   * This is a just json device generator example
@@ -61,7 +62,10 @@ case class MessageProducer() {
 
 object DevGenerator {
   def task1(): Future[Unit] = Future {
-    println(MessageProducer().getDeviceMessage())
+    //println(MessageProducer().getDeviceMessage())
+    ScalaClient.sendToKafka(MessageProducer().getDeviceMessage())
+    //ScalaClient.send(MessageProducer().getDeviceMessage())
+    //ToDo send to Kafka messages
     Thread.sleep(1000)
   }
 
