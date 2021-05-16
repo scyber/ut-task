@@ -42,14 +42,23 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.30'
 
+    compile group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
+    compile group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.1'
+    compile group: 'org.apache.spark', name: 'spark-streaming_2.12', version: '3.1.1'
+
+    //compile group: 'com.typesafe.akka', name: 'akka-http', version: '10.2.4'
+
+
     implementation group: 'org.json', name: 'json', version: '20090211'
-    testCompile 'org.scala-lang:scala-library:2.12.11'
+//    testCompile 'org.scala-lang:scala-library:2.12.11'
     testImplementation 'org.scalatest:scalatest_2.12:3.0.0'
     testImplementation 'junit:junit:4.13'
 
 
 }
 jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    zip64(true)
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }

@@ -15,7 +15,7 @@ object ScalaClient extends LazyLogging{
   def main(args: Array[String]): Unit = {
 
       send(MessageProducer().getDeviceMessage())
-      sendToKafka(MessageProducer().getDeviceMessage())
+      //sendToKafka(MessageProducer().getDeviceMessage())
 
   }
   def send(message: Json) : Unit = {
