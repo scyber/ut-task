@@ -1,9 +1,6 @@
 package org.example.device;
 
-import io.circe.Json;
-import org.joda.time.DateTime;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
@@ -13,7 +10,7 @@ public class ClinetDs {
             Socket s = new Socket("localhost", 7777);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
 
-            dout.writeUTF("Hello " + DateTime.now());
+            dout.writeUTF("Hello ");
             dout.flush();
             dout.close();
             s.close();
